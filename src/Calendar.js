@@ -243,7 +243,7 @@ class Calendar extends React.Component {
 
    /**
     * Optionally provide a function that returns an object of className or style props
-    * to be applied to the the time-slot node. Caution! Styles that change layout or 
+    * to be applied to the the time-slot node. Caution! Styles that change layout or
     * position may break the calendar in unexpected ways.
     *
     * ```js
@@ -299,6 +299,12 @@ class Calendar extends React.Component {
     * @type {(func|string)}
     */
    endAccessor: accessor,
+
+   /**
+    * function that returns the current time.
+    * Defaults to the current time of the browser.
+    */
+    currentTime: PropTypes.func,
 
    /**
     * Constrains the minimum _time_ of the Day and Week views.
@@ -477,7 +483,7 @@ class Calendar extends React.Component {
    views: [views.MONTH, views.WEEK, views.DAY, views.AGENDA],
    date: now,
    step: 30,
-
+   currentTime: () => new Date(),
    drilldownView: views.DAY,
 
    titleAccessor: 'title',

@@ -391,8 +391,8 @@ export default class TimeGrid extends Component {
   }
 
   positionTimeIndicator() {
-    const { rtl, min, max } = this.props
-    const now = new Date();
+    const { rtl, min, max, currentTime } = this.props
+    const now = currentTime();
 
     const secondsGrid = dates.diff(max, min, 'seconds');
     const secondsPassed = dates.diff(now, min, 'seconds');

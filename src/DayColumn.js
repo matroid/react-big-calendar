@@ -83,14 +83,14 @@ class DaySlot extends React.Component {
       min,
       max,
       step,
-      now,
       selectRangeFormat,
       culture,
+      currentTime,
       ...props
     } = this.props
 
     this._totalMin = dates.diff(min, max, 'minutes')
-
+    let now = currentTime();
     let { selecting, startSlot, endSlot } = this.state
     let style = this._slotStyle(startSlot, endSlot)
 
