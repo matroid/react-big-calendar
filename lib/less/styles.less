@@ -68,6 +68,7 @@
 .rbc-today {
   background-color: @today-highlight-bg;
 }
+@import './react-datepicker.css';
 
 .react-datepicker-popper {
   z-index: 100 !important;
@@ -83,6 +84,9 @@
 .DatePicker .react-datepicker__day:hover {
   border-radius: 0.3rem;
   background-color: #d5d5d5;
+}
+.DatePicker .react-datepicker__day--highlighted:hover {
+  background-color: #32be3f !important;
 }
 @import './toolbar.less';
 @import './event.less';

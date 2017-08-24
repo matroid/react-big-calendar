@@ -1,3 +1,4 @@
+@import 'react-datepicker.css';
 .rbc-btn {
   color: inherit;
   font: inherit;
@@ -98,6 +99,9 @@ button.rbc-input::-moz-focus-inner {
 .DatePicker .react-datepicker__day:hover {
   border-radius: 0.3rem;
   background-color: #d5d5d5;
+}
+.DatePicker .react-datepicker__day--highlighted:hover {
+  background-color: #32be3f !important;
 }
 .rbc-toolbar {
   display: -webkit-flex;
