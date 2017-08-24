@@ -6,7 +6,6 @@ import { navigate } from './utils/constants';
 import dates from './utils/dates';
 import DatePicker from 'react-datepicker';
 import localizer from './localizer';
-import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment'; // only uses moment for the datepicker
 
 class DatePickerInput extends React.Component {
