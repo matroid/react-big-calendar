@@ -3,6 +3,25 @@ import React from 'react';
 import cn from 'classnames';
 import message from './utils/messages';
 import { navigate } from './utils/constants';
+import dates from './utils/dates';
+import DatePicker from 'react-datepicker';
+import localizer from './localizer';
+import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment'; // only uses moment for the datepicker
+
+class DatePickerInput extends React.Component {
+  render() {
+    return (
+      <span
+        className='rbc-toolbar-label'
+        style={{ cursor: 'pointer' }}
+        onClick={this.props.onClick}
+      >
+        { this.props.label }
+      </span>
+    )
+  }
+}
 
 class Toolbar extends React.Component {
   static propTypes = {
@@ -17,9 +36,11 @@ class Toolbar extends React.Component {
   }
 
   render() {
-    let { messages, label } = this.props;
-
+    let { messages, label, view, date } = this.props;
     messages = message(messages)
+    let start = dates.startOf(date, view)
+    let end = dates.endOf(date, view)
+    let datesHighlighted = dates.range(start, end)
 
     return (
       <div className='rbc-toolbar'>
@@ -43,9 +64,23 @@ class Toolbar extends React.Component {
             {messages.next}
           </button>
         </span>
-
-        <span className='rbc-toolbar-label'>
-          { label }
+        <span
+          className='rbc-toolbar-label'
+        >
+          <DatePicker
+            calendarClassName={`DatePicker DatePicker__${view}`}
+            selected={moment(date)}
+            todayButton={view === 'day' ? 'Today' : `This ${view}`}
+            customInput={
+              <span
+                style={{ cursor: 'pointer' }}
+              >
+                { this.props.label }
+              </span>
+            }
+            highlightDates={datesHighlighted.map(d => moment(d))}
+            onChange={this.handleDatePickerChange}
+          />
         </span>
 
         <span className='rbc-btn-group'>
@@ -57,9 +92,18 @@ class Toolbar extends React.Component {
     );
   }
 
-  navigate = (action) => {
-    this.props.onNavigate(action)
+  handleDatePickerChange = (date) => {
+    this.navigate('', date._d);
   }
+
+  navigate = (action, date) => {
+    if (Date.parse(date)) {
+      this.props.onNavigate(action, date);
+    } else {
+      this.props.onNavigate(action);
+    }
+  }
+
 
   view = (view) => {
     this.props.onViewChange(view)
