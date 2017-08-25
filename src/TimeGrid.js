@@ -184,6 +184,7 @@ export default class TimeGrid extends Component {
 
           <TimeColumn
             {...this.props}
+            now={this.props.currentTime()}
             showLabels
             style={{ width }}
             ref={gutterRef}
