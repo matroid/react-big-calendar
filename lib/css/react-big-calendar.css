@@ -56,7 +56,10 @@ button.rbc-input::-moz-focus-inner {
   direction: rtl;
 }
 .rbc-off-range {
-  color: #b3b3b3;
+  color: #999999;
+}
+.rbc-off-range-bg {
+  background: #e5e5e5;
 }
 .rbc-header {
   overflow: hidden;
@@ -77,10 +80,10 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-row-content {
   position: relative;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   z-index: 4;
 }
 .rbc-today {
@@ -549,7 +552,9 @@ button.rbc-input::-moz-focus-inner {
   font-size: 16px;
 }
 .rbc-toolbar .rbc-toolbar-label {
-  width: 100%;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   padding: 0 10px;
   text-align: center;
 }
@@ -660,6 +665,14 @@ button.rbc-input::-moz-focus-inner {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+.rbc-event-continues-day-after {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.rbc-event-continues-day-prior {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 .rbc-row {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -696,10 +709,10 @@ button.rbc-input::-moz-focus-inner {
       -ms-flex: 1 0 0px;
           flex: 1 0 0;
   width: 100%;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   height: 100%;
 }
 .rbc-month-view .rbc-header {
@@ -1031,10 +1044,10 @@ button.rbc-input::-moz-focus-inner {
 }
 .rbc-time-content > .rbc-day-slot {
   width: 100%;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 .rbc-current-time-indicator {
   position: absolute;
