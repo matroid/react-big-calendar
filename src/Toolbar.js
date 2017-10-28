@@ -35,7 +35,6 @@ class Toolbar extends React.Component {
 
   render() {
     let { messages, label, view, date } = this.props;
-    messages = message(messages)
     let start = dates.startOf(date, view)
     let end = dates.endOf(date, view)
     let datesHighlighted = dates.range(start, end)
