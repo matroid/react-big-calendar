@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
-import message from './utils/messages';
 import { navigate } from './utils/constants';
 import dates from './utils/dates';
 import DatePicker from 'react-datepicker';
